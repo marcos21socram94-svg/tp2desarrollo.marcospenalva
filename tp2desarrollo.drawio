@@ -1,0 +1,94 @@
+<mxfile host="Electron">
+  <diagram name="Página-1" id="kSCjxaXDDdfD-kVE_JcC">
+    <mxGraphModel dx="1030" dy="722" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="piqGELF_AoF7AHO_TCfO-2" parent="1" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;font style=&quot;font-size: 16px; background-color: light-dark(#ffffff, var(--ge-dark-color, #121212));&quot;&gt;Cliente&lt;/font&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;-id:String&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;-DNI: String&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;-nombre : String&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;-apellido: String&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;-direccion : String&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;-telefono: String&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;-envios: List&amp;lt;Envio&amp;gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+registrarEnvio(envio: Envio)&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+getID(): String&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+getDNI(): String&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+getNombre(): String&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+getApellido(): String&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+getDireccion(): String&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+getTelefono(): String&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+getEnvios(): List&amp;lt;envio&amp;gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;br&gt;&lt;/p&gt;&lt;br&gt;&lt;br&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="270" width="240" as="geometry" />
+        </mxCell>
+        <mxCell id="piqGELF_AoF7AHO_TCfO-4" parent="1" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;span style=&quot;background-color: light-dark(#ffffff, var(--ge-dark-color, #121212));&quot;&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;Movimiento&lt;/font&gt;&lt;/span&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;-fechaHora: LocalDateTime&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;-accion:String&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;-nombreSucursal: String&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+getFechaHora():LocalDateTime&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+getAccion(): String&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+getNombreSucursal(): String&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+toString(): String&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;br&gt;&lt;/p&gt;" vertex="1">
+          <mxGeometry height="170" width="190" x="637" as="geometry" />
+        </mxCell>
+        <mxCell id="piqGELF_AoF7AHO_TCfO-5" parent="1" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;font style=&quot;font-size: 16px; background-color: light-dark(#ffffff, var(--ge-dark-color, #121212));&quot;&gt;&lt;i&gt;Envio&lt;/i&gt;&lt;/font&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;#TARIFA_BASE_KM: double = 100.0 {readOnly}&lt;br&gt;#TARIFA_PESO_KG: double = 1.8{readOnly}&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;-distanciaKM: double&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;-destino:String&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;-cliente: Cliente&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;-paquetes: List&amp;lt;Paquete&amp;gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;-historial: List&amp;lt;Movimiento&amp;gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+agregarPaquete(p:Paquete) : void&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+esVacio(): boolean&amp;nbsp;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+iniciarViaje(): void&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+entregar(): void&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+registrarDevolucion(): void&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+mostrarHistorial(): void&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+registrarMovimiento(estado: String, sucursalNombre:String ): void&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+{abstract} calcularCostoTotal(): double&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;#&lt;i&gt;calcularCostoBase(): double&lt;/i&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+getDestino(): String&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+getCliente(): Cliente&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+getPaquetes(): List&amp;lt;Paquete&amp;gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+getHistorial():List&amp;lt;Movimiento&amp;gt;&lt;/p&gt;" vertex="1">
+          <mxGeometry height="340" width="370" x="310" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="piqGELF_AoF7AHO_TCfO-6" edge="1" parent="1" source="piqGELF_AoF7AHO_TCfO-5" style="html=1;verticalAlign=bottom;endArrow=blockThin;rounded=0;edgeStyle=orthogonalEdgeStyle;endFill=1;exitX=-0.004;exitY=0.471;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1.005;entryY=0.321;entryDx=0;entryDy=0;entryPerimeter=0;" target="piqGELF_AoF7AHO_TCfO-2" value="dispatch">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="190" y="340" as="sourcePoint" />
+            <mxPoint x="250" y="150" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="piqGELF_AoF7AHO_TCfO-7" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="1cliente-asociacion" vertex="1">
+          <mxGeometry height="30" width="60" x="230" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="piqGELF_AoF7AHO_TCfO-9" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="0..*" vertex="1">
+          <mxGeometry height="30" width="60" x="570" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="piqGELF_AoF7AHO_TCfO-10" parent="1" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;EnvioEstandar&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;+calcularCostoTotal():double" vertex="1">
+          <mxGeometry height="60" width="160" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="piqGELF_AoF7AHO_TCfO-11" parent="1" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;EnvioExpress&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;+calcularCostoTotal():double" vertex="1">
+          <mxGeometry height="60" width="170" x="310" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="piqGELF_AoF7AHO_TCfO-12" parent="1" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;" value="&lt;blockquote style=&quot;margin: 0px 0px 0px 40px; border-width: medium; border-style: none; border-color: currentcolor; border-image: none; padding: 0px;&quot;&gt;&lt;p style=&quot;margin: 4px 0px 0px;&quot;&gt;&lt;b&gt;EnvioInternacional&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;+calcularCostoTotal():double&lt;/blockquote&gt;" vertex="1">
+          <mxGeometry height="60" width="200" x="590" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="piqGELF_AoF7AHO_TCfO-19" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="(herencia)" vertex="1">
+          <mxGeometry height="30" width="60" x="50" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="piqGELF_AoF7AHO_TCfO-20" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="(herencia)" vertex="1">
+          <mxGeometry height="30" width="60" x="710" y="540" as="geometry" />
+        </mxCell>
+        <mxCell id="piqGELF_AoF7AHO_TCfO-21" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="(herencia)" vertex="1">
+          <mxGeometry height="30" width="60" x="400" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="piqGELF_AoF7AHO_TCfO-23" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="0..* paquetes" vertex="1">
+          <mxGeometry height="30" width="60" x="80" y="680" as="geometry" />
+        </mxCell>
+        <mxCell id="piqGELF_AoF7AHO_TCfO-27" parent="1" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;" value="&lt;p style=&quot;margin: 4px 0px 0px; text-align: center;&quot;&gt;&lt;b&gt;Paquete&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;-id:String&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;-descripcion:String&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;-peso:double&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;-alto:double&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;-ancho:double&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;-largo:double&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;-actualEstado:Estado&lt;/p&gt;&lt;hr&gt;+Paquete(id:String,descripcion:String&lt;div&gt;&lt;div&gt;+Paquete(id:String,desc:String,P:double&lt;/div&gt;&lt;div&gt;,alto:double,anc:double,lar:double)&lt;/div&gt;&lt;div&gt;+enviar():void&lt;div&gt;+entregar():void&lt;/div&gt;&lt;div&gt;+registrarDevolucion():void&lt;/div&gt;&lt;div&gt;+actualizarPeso(w:double):void&lt;/div&gt;&lt;div&gt;+actualizarDimensiones(...):void&lt;/div&gt;&lt;div&gt;+getId():String&lt;/div&gt;&lt;div&gt;+getDescripcion():String&lt;/div&gt;&lt;div&gt;+getActualEstado():String&lt;/div&gt;&lt;div&gt;+getPeso():double&lt;/div&gt;&lt;div&gt;+getAlto():double&lt;/div&gt;&lt;div&gt;+getAncho():double&lt;/div&gt;&lt;div&gt;+getLargo():double&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;p style=&quot;margin:0px;margin-left:8px;&quot;&gt;&lt;br&gt;&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="370" width="220" x="10" y="750" as="geometry" />
+        </mxCell>
+        <mxCell id="piqGELF_AoF7AHO_TCfO-28" parent="1" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;Sucursal&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;-id:String&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;-nombre:String&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+Sucursal(id:String,nombre:String)&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+recibirEnvio(envio:Envio):void&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+despacharEnvio(envio:Envio):void&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+entregarEnvio(envio:Envio):void&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+registrarEnvioFallido(envio:Envio,motivo:String):void&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+procesarEntrega(envio:Envio,fueExitosa:boolean,motivoFallo:String):void&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+getId():String&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+getNombre():String&amp;nbsp;&lt;/p&gt;" vertex="1">
+          <mxGeometry height="260" width="410" x="410" y="780" as="geometry" />
+        </mxCell>
+        <mxCell id="s7Mxcf-n1sYTeIR6XKpj-2" edge="1" parent="1" source="piqGELF_AoF7AHO_TCfO-5" style="endArrow=diamondThin;endFill=0;endSize=24;html=1;rounded=0;entryX=0.964;entryY=-0.005;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0;exitY=0.778;exitDx=0;exitDy=0;exitPerimeter=0;" target="piqGELF_AoF7AHO_TCfO-27" value="">
+          <mxGeometry relative="1" width="160" as="geometry">
+            <mxPoint x="77.51999999999998" y="585" as="sourcePoint" />
+            <mxPoint x="240" y="554" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="s7Mxcf-n1sYTeIR6XKpj-6" edge="1" parent="1" source="piqGELF_AoF7AHO_TCfO-10" style="endArrow=block;endSize=16;endFill=0;html=1;rounded=0;entryX=0;entryY=0.667;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.458;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;" target="piqGELF_AoF7AHO_TCfO-5" value="Extends">
+          <mxGeometry relative="1" width="160" as="geometry">
+            <mxPoint x="70" y="580" as="sourcePoint" />
+            <mxPoint x="230" y="580" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="s7Mxcf-n1sYTeIR6XKpj-7" edge="1" parent="1" source="piqGELF_AoF7AHO_TCfO-12" style="endArrow=block;endSize=16;endFill=0;html=1;rounded=0;entryX=0.694;entryY=0.996;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.832;exitY=0.013;exitDx=0;exitDy=0;exitPerimeter=0;" target="piqGELF_AoF7AHO_TCfO-5" value="Extends">
+          <mxGeometry relative="1" width="160" as="geometry">
+            <mxPoint x="520" y="763" as="sourcePoint" />
+            <mxPoint x="757" y="580" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="s7Mxcf-n1sYTeIR6XKpj-8" edge="1" parent="1" source="piqGELF_AoF7AHO_TCfO-11" style="endArrow=block;endSize=16;endFill=0;html=1;rounded=0;entryX=0.538;entryY=1.006;entryDx=0;entryDy=0;entryPerimeter=0;" target="piqGELF_AoF7AHO_TCfO-5" value="Extends">
+          <mxGeometry relative="1" width="160" as="geometry">
+            <mxPoint x="510" y="873" as="sourcePoint" />
+            <mxPoint x="747" y="690" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="s7Mxcf-n1sYTeIR6XKpj-9" edge="1" parent="1" source="piqGELF_AoF7AHO_TCfO-28" style="endArrow=block;dashed=1;endFill=0;endSize=12;html=1;rounded=0;entryX=0.642;entryY=1.011;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.382;exitY=-0.012;exitDx=0;exitDy=0;exitPerimeter=0;" target="piqGELF_AoF7AHO_TCfO-5" value="">
+          <mxGeometry relative="1" width="160" as="geometry">
+            <mxPoint x="220" y="720" as="sourcePoint" />
+            <mxPoint x="380" y="720" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="s7Mxcf-n1sYTeIR6XKpj-10" edge="1" parent="1" source="piqGELF_AoF7AHO_TCfO-5" style="endArrow=diamondThin;endFill=1;endSize=24;html=1;rounded=0;exitX=0.649;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.001;entryY=0.339;entryDx=0;entryDy=0;entryPerimeter=0;" target="piqGELF_AoF7AHO_TCfO-4" value="">
+          <mxGeometry relative="1" width="160" as="geometry">
+            <mxPoint x="380" y="170" as="sourcePoint" />
+            <mxPoint x="470" y="90" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
