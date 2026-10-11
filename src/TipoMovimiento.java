@@ -1,0 +1,7 @@
+public enum TipoMovimiento {
+    RECIBIDO_EN_SUCURSAL, 
+    DESPACHADO_DE_SUCURSAL, 
+    EN_DISTRIBUCION, 
+    ENTREGADO, 
+    DEVUELTO
+}
