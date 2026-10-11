@@ -1,11 +1,11 @@
 public class Main {
     public static void main(String[] args) {
-        // 1. Cliente y Sucursales (Se pasan los 6 argumentos requeridos por el constructor de Cliente)
+        // 1. Cliente y Sucursales
         Cliente cliente1 = new Cliente("CLI-01", "38123456", "Marcos", "Peñalva", "Calle Falsa 123", "2944000000");
         Sucursal sucElBolson = new Sucursal("SUC-01", "El Bolsón");
         Sucursal sucBariloche = new Sucursal("SUC-02", "Bariloche");
 
-        // --- CASO 1: Envío Exitoso ---
+        //  Envío Exito
         Paquete p1 = new Paquete("PAQ-01", "Notebook", 2.5, 5, 30, 40);
         Envio envioExitoso = new EnvioEstandar(120, "Bariloche", cliente1);
         envioExitoso.agregarPaquete(p1);
@@ -24,7 +24,7 @@ public class Main {
         }
         System.out.println("Estado final paquete: " + p1.getActualEstado() + "\n");
 
-        // --- CASO 2: Envío Fallido (Devolución) ---
+        // Envío Fallido
         Paquete p2 = new Paquete("PAQ-02", "Documentos Urgentísimos", 0.5, 2, 15, 20);
         Envio envioFallido = new EnvioExpress(120, "Bariloche", cliente1);
         envioFallido.agregarPaquete(p2);
@@ -34,7 +34,7 @@ public class Main {
         sucElBolson.despacharEnvio(envioFallido);
         sucBariloche.recibirEnvio(envioFallido);
 
-        // Simulamos que la entrega FALLÓ (false, y el texto del motivo)
+        // Simulamos que la entrega fallo
         sucBariloche.procesarEntrega(envioFallido, false, "Domicilio cerrado / Destinatario ausente");
 
         System.out.println("--- HISTORIAL ENVÍO FALLIDO (DEVOLUCIÓN) ---");

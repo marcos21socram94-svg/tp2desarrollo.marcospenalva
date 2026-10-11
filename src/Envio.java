@@ -3,6 +3,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Objects;
 
+/// Representa un envío genérico con atributos y métodos comunes a todos los tipos de envíos.
 public abstract class Envio {
     protected double distanciaKm;
     protected String destino;
@@ -14,6 +15,7 @@ public abstract class Envio {
     protected static final double TARIFA_BASE_KM = 50.0;
     protected static final double TARIFA_PESO_KG = 100.0;
 
+    /// Constructor que inicializa un envío con la distancia, destino y cliente.
     public Envio(double distanciaKm, String destino, Cliente cliente) {
         if (distanciaKm <= 0) {
             throw new IllegalArgumentException("La distancia debe ser mayor a 0");
@@ -23,6 +25,7 @@ public abstract class Envio {
         this.cliente = Objects.requireNonNull(cliente, "El cliente no puede ser nulo");
     }
 
+    /// Método abstracto que debe ser implementado por las subclases para calcular el costo total del envío.
     public abstract double calcularCostoTotal();
 
     protected double calcularCostoBase() {
@@ -32,17 +35,17 @@ public abstract class Envio {
         }
         return (this.distanciaKm * TARIFA_BASE_KM) + costoCarga;
     }
-
+/// Agrega un paquete al envío, asegurando que no sea nulo.
     public void agregarPaquete(Paquete paquete) {
         Objects.requireNonNull(paquete, "El paquete no puede ser nulo");
         this.paquetes.add(paquete);
     }
-
+/// Registra un movimiento en el historial del envío, asegurando que el tipo y la sucursal no sean nulos.
     public void registrarMovimiento(TipoMovimiento tipo, Sucursal sucursal) {
         Movimiento mov = new Movimiento(tipo, sucursal);
         this.historial.add(mov);
     }
-
+/// Cambia el estado actual del envío, asegurando que la transición sea válida según las reglas de negocio.
     public void cambiarEstado(EstadoEnvio nuevoEstado) {
         Objects.requireNonNull(nuevoEstado, "El nuevo estado no puede ser nulo");
         if (!this.estadoActual.esTransicionValida(nuevoEstado)) {
@@ -50,7 +53,7 @@ public abstract class Envio {
         }
         this.estadoActual = nuevoEstado;
     }
-
+/// Getters y métodos de utilidad para acceder a los atributos del envío y su historial.
     public EstadoEnvio getEstadoActual() {
         return estadoActual;
     }
@@ -75,7 +78,7 @@ public abstract class Envio {
         }
         return lista;
     }
-
+    
     protected boolean estaFinalizado() {
         return this.estadoActual == EstadoEnvio.ENTREGADO || this.estadoActual == EstadoEnvio.DEVUELTO;
     }
