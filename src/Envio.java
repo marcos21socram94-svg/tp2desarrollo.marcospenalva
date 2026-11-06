@@ -19,9 +19,14 @@ public abstract class Envio {
         if (distanciaKm <= 0) {
             throw new IllegalArgumentException("La distancia debe ser mayor a 0");
         }
-        this.distanciaKm = distanciaKm;
         this.destino = Objects.requireNonNull(destino, "El destino no puede ser nulo");
         this.cliente = Objects.requireNonNull(cliente, "El cliente no puede ser nulo");
+        
+        // Validación agregada para evitar textos vacíos
+        if (this.destino.trim().isEmpty()) {
+            throw new IllegalArgumentException("El destino no puede estar vacío");
+        }
+        this.distanciaKm = distanciaKm;
     }
 
     public abstract double calcularCostoTotal();

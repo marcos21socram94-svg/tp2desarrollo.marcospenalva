@@ -1,4 +1,3 @@
-////Clase Paquete con reglas de negocio////
 public class Paquete {
     
     public enum Estado {
@@ -7,7 +6,7 @@ public class Paquete {
         ENTREGADO,
         DEVUELTO   
     }
-/////atributos de la clase////
+
     private final String id;
     private String descripcion;
     private double peso;
@@ -15,9 +14,15 @@ public class Paquete {
     private double ancho;
     private double largo;
     private Estado actualEstado;
-/////constructor de la clase////
+
     public Paquete(String id, String descripcion, double peso, double alto, double ancho, double largo) {
-        if (id == null || id.trim().isEmpty()) throw new IllegalArgumentException("El ID no puede ser vacío.");
+        if (id == null || id.trim().isEmpty()) {
+            throw new IllegalArgumentException("El ID no puede ser nulo ni vacío.");
+        }
+        if (descripcion == null || descripcion.trim().isEmpty()) {
+            throw new IllegalArgumentException("La descripción no puede ser nula ni vacía.");
+        }
+        
         this.id = id;
         this.descripcion = descripcion;
         this.peso = peso;
@@ -26,12 +31,12 @@ public class Paquete {
         this.largo = largo;
         this.actualEstado = Estado.EN_PREPARACION; 
     }
-/////constructor alternativo para crear un paquete sin dimensiones ni peso////
+
     public Paquete(String id, String descripcion) {
         this(id, descripcion, 0.0, 0.0, 0.0, 0.0);
     }
 
-    // Reglas de negocio con Excepciones Defensivas////
+    // Reglas de negocio con Excepciones Defensivas
     public void enviar() {
         if (actualEstado != Estado.EN_PREPARACION) {
             throw new IllegalStateException("Error: Solo se puede enviar un paquete en preparación.");
@@ -74,7 +79,7 @@ public class Paquete {
         this.ancho = ancho;
         this.largo = largo;
     }
-/////getters y setters////
+
     public String getId() { return id; }
     public String getDescripcion() { return descripcion; }
     public Estado getActualEstado() { return actualEstado; }

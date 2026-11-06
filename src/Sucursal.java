@@ -11,6 +11,10 @@ public class Sucursal {
     public Sucursal(String id, String nombre) {
         this.id = Objects.requireNonNull(id, "El ID no puede ser nulo");
         this.nombre = Objects.requireNonNull(nombre, "El nombre no puede ser nulo");
+        
+        if (id.trim().isEmpty() || nombre.trim().isEmpty()) {
+            throw new IllegalArgumentException("El ID y el nombre de la sucursal no pueden estar vacíos");
+        }
     }
 
     public String getId() { return id; }
@@ -39,7 +43,6 @@ public class Sucursal {
         envio.devolver(this, motivoFallo);
     }
 
-    // 4. Excepción: Envío inexistente en el registro de la sucursal
     private void validarEnvioRegistrado(Envio envio) {
         Objects.requireNonNull(envio, "El envío no puede ser nulo");
         if (!enviosRegistrados.contains(envio)) {
