@@ -1,10 +1,21 @@
 public class Paquete {
     
     public enum Estado {
-        EN_PREPARACION,
-        ENVIADO,
-        ENTREGADO,
-        DEVUELTO   
+        EN_PREPARACION("En preparación"),
+        ENVIADO("Enviado"),
+        ENTREGADO("Entregado"),
+        DEVUELTO("Devuelto");
+        
+        private final String descripcion;
+
+        Estado(String descripcion) {
+            this.descripcion = descripcion;
+        }
+
+        @Override
+        public String toString() {
+            return descripcion;
+        }
     }
 
     private final String id;

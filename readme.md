@@ -26,3 +26,10 @@ Este sistema modela la operación logística de una empresa de envíos, permitie
 2. Compilar los archivos fuente desde la terminal ubicados en la carpeta `src`:
    ```bash
    javac -d ../out *.java
+
+   ## 💻 Instrucciones de Ejecución
+1. Clonar el repositorio en tu equipo.
+2. Compilar los archivos fuente desde la terminal ubicados en la carpeta `src` forzando UTF-8:
+   ```bash
+   javac -encoding UTF-8 -d ../out *.java
+   java -Dfile.encoding=UTF-8 -cp ../out Main
