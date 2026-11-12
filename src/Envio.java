@@ -1,9 +1,11 @@
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 import java.util.Objects;
+import java.util.Optional;
 
 public abstract class Envio {
+    // CORRECCIÓN 2: Código de seguimiento único para usar como clave en el HashMap<Integer, Envio>
+    protected final int codigo;
     protected double distanciaKm;
     protected String destino;
     protected Cliente cliente;
@@ -15,18 +17,27 @@ public abstract class Envio {
     protected static final double TARIFA_PESO_KG = 100.0;
     private static final int LIMITE_PAQUETES = 3;
 
-    public Envio(double distanciaKm, String destino, Cliente cliente) {
+    public Envio(int codigo, double distanciaKm, String destino, Cliente cliente) {
+        if (codigo <= 0) {
+            throw new IllegalArgumentException("El código de seguimiento debe ser un número positivo");
+        }
         if (distanciaKm <= 0) {
             throw new IllegalArgumentException("La distancia debe ser mayor a 0");
         }
         this.destino = Objects.requireNonNull(destino, "El destino no puede ser nulo");
         this.cliente = Objects.requireNonNull(cliente, "El cliente no puede ser nulo");
-        
-        // Validación agregada para evitar textos vacíos
+
         if (this.destino.trim().isEmpty()) {
             throw new IllegalArgumentException("El destino no puede estar vacío");
         }
+
+        this.codigo = codigo;
         this.distanciaKm = distanciaKm;
+    }
+
+    // Getter del código de seguimiento para que RegistroCentral lo obtenga directamente del objeto
+    public int getCodigo() {
+        return codigo;
     }
 
     public abstract double calcularCostoTotal();
@@ -56,27 +67,24 @@ public abstract class Envio {
         this.historial.add(new Movimiento(tipo, sucursal));
     }
 
-    // --- ACCIONES DEL DOMINIO CON LAS EXCEPCIONES INTEGRADAS ---
+    // --- ACCIONES DEL NEGOCIO ---
 
     public void recibir(Sucursal sucursal) {
         Objects.requireNonNull(sucursal, "La sucursal no puede ser nula");
-        
-        // 1. Excepción: Envío sin paquetes
+
         if (!tienePaquetesCargados()) {
             throw new IllegalStateException("Envío sin paquetes: no se puede recibir un envío vacío.");
         }
-        // 2. Excepción: Recibir en otra etapa (ej. cuando ya está finalizado)
         if (estaFinalizado()) {
             throw new IllegalStateException("Etapa inválida: el envío ya se encuentra finalizado (" + estadoActual + ").");
         }
 
-        // 3. Excepción: Movimiento incoherente (recibir dos veces o en otra sucursal sin despacho previo)
         if (todaviaNoSalio()) {
             // Primer ingreso en la sucursal de origen
             this.estadoActual = EstadoEnvio.EN_TRANSITO;
             registrarMovimiento(TipoMovimiento.RECIBIDO_EN_SUCURSAL, sucursal);
         } else if (this.estadoActual == EstadoEnvio.DESPACHADO) {
-            // Llega a una nueva sucursal tras haber sido despachado
+            // Ingreso en una sucursal de escala o destino tras haber sido despachado
             Optional<Movimiento> ultimo = obtenerUltimoMovimiento();
             if (ultimo.isPresent() && ultimo.get().getSucursal().equals(sucursal)) {
                 throw new IllegalStateException("Movimiento incoherente: no se puede recibir en la misma sucursal desde la que se despachó.");
@@ -84,8 +92,7 @@ public abstract class Envio {
             this.estadoActual = EstadoEnvio.EN_TRANSITO;
             registrarMovimiento(TipoMovimiento.RECIBIDO_EN_SUCURSAL, sucursal);
         } else {
-            // Si ya estaba EN_TRANSITO (recibido) y quieren recibirlo de nuevo sin despachar
-            throw new IllegalStateException("Movimiento incoherente: no se puede recibir dos veces o en otra sucursal sin despacho previo.");
+            throw new IllegalStateException("Movimiento incoherente: no se puede recibir dos veces seguidas sin despacho previo.");
         }
     }
 
@@ -147,7 +154,7 @@ public abstract class Envio {
         }
     }
 
-    // --- REGLAS ENCAPSULADAS (Ahora sí se usan todas) ---
+    // --- CONSULTAS INTERNAS Y GETTERS ---
 
     protected boolean estaFinalizado() {
         return this.estadoActual == EstadoEnvio.ENTREGADO || this.estadoActual == EstadoEnvio.DEVUELTO;
@@ -162,6 +169,7 @@ public abstract class Envio {
     }
 
     public EstadoEnvio getEstadoActual() { return estadoActual; }
+    public String getDestino() { return destino; }
 
     public Optional<Movimiento> obtenerUltimoMovimiento() {
         if (historial.isEmpty()) return Optional.empty();

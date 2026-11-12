@@ -1,6 +1,6 @@
 public class EnvioEstandar extends Envio {
-    public EnvioEstandar(double distanciaKm, String destino, Cliente cliente) {
-        super(distanciaKm, destino, cliente);
+    public EnvioEstandar(int codigo, double distanciaKm, String destino, Cliente cliente) {
+        super(codigo, distanciaKm, destino, cliente);
     }
 
     @Override

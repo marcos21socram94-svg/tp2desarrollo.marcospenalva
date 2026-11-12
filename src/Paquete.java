@@ -1,11 +1,11 @@
 public class Paquete {
-    
+
     public enum Estado {
         EN_PREPARACION("En preparación"),
         ENVIADO("Enviado"),
         ENTREGADO("Entregado"),
         DEVUELTO("Devuelto");
-        
+
         private final String descripcion;
 
         Estado(String descripcion) {
@@ -33,26 +33,29 @@ public class Paquete {
         if (descripcion == null || descripcion.trim().isEmpty()) {
             throw new IllegalArgumentException("La descripción no puede ser nula ni vacía.");
         }
-        
+
         this.id = id;
         this.descripcion = descripcion;
         this.peso = peso;
         this.alto = alto;
         this.ancho = ancho;
         this.largo = largo;
-        this.actualEstado = Estado.EN_PREPARACION; 
+        this.actualEstado = Estado.EN_PREPARACION;
     }
 
     public Paquete(String id, String descripcion) {
         this(id, descripcion, 0.0, 0.0, 0.0, 0.0);
     }
 
-    // Reglas de negocio con Excepciones Defensivas
+    // CORRECCIÓN 5: Permite despachar en sucursales intermedias (escalas).
+    // Si ya estaba ENVIADO, mantiene su estado en viaje; solo falla si ya fue entregado o devuelto.
     public void enviar() {
-        if (actualEstado != Estado.EN_PREPARACION) {
-            throw new IllegalStateException("Error: Solo se puede enviar un paquete en preparación.");
+        if (actualEstado == Estado.ENTREGADO || actualEstado == Estado.DEVUELTO) {
+            throw new IllegalStateException("Error: No se puede enviar un paquete que ya fue finalizado (" + actualEstado + ").");
         }
-        actualEstado = Estado.ENVIADO;
+        if (actualEstado == Estado.EN_PREPARACION) {
+            actualEstado = Estado.ENVIADO;
+        }
     }
 
     public void entregar() {

@@ -1,6 +1,6 @@
 public class EnvioExpress extends Envio {
-    public EnvioExpress(double distanciaKm, String destino, Cliente cliente) {
-        super(distanciaKm, destino, cliente);
+    public EnvioExpress(int codigo, double distanciaKm, String destino, Cliente cliente) {
+        super(codigo, distanciaKm, destino, cliente);
     }
 
     @Override
